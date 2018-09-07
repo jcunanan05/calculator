@@ -8,10 +8,12 @@ import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(rootReducer);
 
+/* eslint-disable react/jsx-filename-extension */
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
+
 registerServiceWorker();
