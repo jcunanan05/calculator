@@ -1,6 +1,6 @@
 function reducerHello() {
   return {
-    text: "Hello World"
+    text: 'Hello World',
   };
 }
 

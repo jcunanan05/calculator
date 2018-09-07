@@ -4,16 +4,14 @@ import { connect } from 'react-redux';
 class Hello extends Component {
   render() {
     const { payload } = this.props;
-    
-    return (
-      <h1>{payload.text}</h1>
-    );
+
+    return <h1>{payload.text}</h1>;
   }
 }
 
 function mapStateToProps(state) {
   return {
-    payload: state.hello
+    payload: state.hello,
   };
 }
 
