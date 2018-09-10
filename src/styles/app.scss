@@ -1,0 +1,18 @@
+@import './variables';
+@import '../../node_modules/bulma/sass/utilities/all';
+@import '../../node_modules/bulma/sass/base/all';
+@import '../../node_modules/bulma/sass/layout/all';
+// title
+@import '../../node_modules/bulma/sass/elements/title';
+@import './header';
+@import './calculator';
+
+
+html,
+body,
+#root,
+.App {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
