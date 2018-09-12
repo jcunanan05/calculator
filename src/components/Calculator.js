@@ -1,16 +1,6 @@
 import React from 'react';
-
-const arr = [];
-
-for (let i = 1; i <= 16; i += 1) {
-  arr.push(i);
-}
-
-const Button = ({ children }) => (
-  <button type="button" className="calculator__button">
-    {children}
-  </button>
-);
+import CalculatorKey from './CalculatorKey';
+import calculatorKeyList from '../calculatorKeyList';
 
 const Calculator = () => (
   <section className="calculator">
@@ -25,8 +15,8 @@ const Calculator = () => (
     </div>
 
     <div className="calculator__body">
-      {arr.map((num) => (
-        <Button key={num}>{num}</Button>
+      {calculatorKeyList.map((calculatorKey) => (
+        <CalculatorKey key={calculatorKey} character={calculatorKey} />
       ))}
     </div>
   </section>
