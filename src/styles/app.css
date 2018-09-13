@@ -1535,10 +1535,10 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   make the calculator rounded sides in the top.
 */
 .calculator {
-  max-width: 25rem;
+  max-width: 22rem;
   min-height: 10rem;
   margin: 0 auto;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 0.2rem 0.2rem 0 0;
   box-shadow: 0px 0px 5px 0px #0006;
   background-color: #e6e6e6; }
 
@@ -1547,19 +1547,18 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   flex-flow: column;
   min-height: 7rem;
   padding: .5rem 1rem;
-  border-radius: 1rem 1rem 0 0;
-  background-color: #212121af;
-  /* 
-    equally distribute space for all calc display elements 
-    and also align them right-center
-  */ }
-  .calculator__display .title {
-    color: white; }
-  .calculator__display > * {
+  border-radius: 0.2rem 0.2rem 0 0;
+  background-color: #212121af; }
+  .calculator__display > section {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end; }
+  .calculator__display .title {
+    color: white; }
+
+.calculator__formula .title {
+  color: #cfcfcf; }
 
 .calculator__body {
   height: 20vw;
@@ -1570,7 +1569,8 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 @supports (display: grid) {
   .calculator__body {
     display: grid;
-    grid-template-columns: repeat(4, minmax(1rem, auto)); } }
+    grid-template-columns: repeat(4, minmax(1rem, 7rem));
+    grid-template-rows: repeat(5, minmax(1rem, 7rem)); } }
 
 .calculator__button {
   font-size: 1.7rem;
@@ -1582,12 +1582,12 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   background-color: #9e9e9e; }
 
 .calculator__button:nth-of-type(4n) {
-  color: white;
-  background-color: #ff8f00; }
+  background-color: #ff8f00;
+  color: white; }
 
 .calculator__button:nth-of-type(4n):active {
-  color: black;
-  background-color: #ce7603; }
+  background-color: #ce7603;
+  color: black; }
 
 html,
 body,

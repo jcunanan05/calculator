@@ -1,7 +1,7 @@
 $calculator-min-height: 10rem;
 $calculator-max-height: 30rem;
-$calculator-max-width: 25rem;
-$calculator-border-radius: 1rem 1rem 0 0;
+$calculator-max-width: 22rem;
+$calculator__display-border-radius: .2rem .2rem 0 0;
 $calculator-color: #e6e6e6;
 $calculator__body-color: #616161;
 $calculator__button-color--active: #9e9e9e;
@@ -15,7 +15,7 @@ $calculator__button-color-special--active: #ce7603;
   max-width: $calculator-max-width;
   min-height: $calculator-min-height;
   margin: 0 auto;
-  border-radius: $calculator-border-radius;
+  border-radius: $calculator__display-border-radius;
   box-shadow: 0px 0px 5px 0px #0006;
   background-color: $calculator-color;
 }
@@ -25,24 +25,23 @@ $calculator__button-color-special--active: #ce7603;
   flex-flow: column;
   min-height: 7rem;
   padding: .5rem 1rem;
-  border-radius: $calculator-border-radius;
+  border-radius: $calculator__display-border-radius;
   background-color: #212121af;
-
-  .title {
-    color: white;
-  }
-
-  /* 
-    equally distribute space for all calc display elements 
-    and also align them right-center
-  */
-
-  > * {
+  // align right all the display text and split section into half
+  > section {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
   }
+
+  .title {
+    color: white;
+  }
+}
+
+.calculator__formula .title {
+  color: #cfcfcf;
 }
 
 .calculator__body {
@@ -55,7 +54,8 @@ $calculator__button-color-special--active: #ce7603;
 @supports (display: grid) {
   .calculator__body {
     display: grid;
-    grid-template-columns: repeat(4, minmax(1rem, auto));
+    grid-template-columns: repeat(4, minmax(1rem, 7rem));
+    grid-template-rows: repeat(5, minmax(1rem, 7rem));
   }
 }
 
@@ -71,11 +71,11 @@ $calculator__button-color-special--active: #ce7603;
 }
 
 .calculator__button:nth-of-type(4n) {
-  color: white;
   background-color: $calculator__button-color-special;
+  color: white;
 }
 
 .calculator__button:nth-of-type(4n):active {
-  color: black;
   background-color: $calculator__button-color-special--active;
+  color: black;
 }
