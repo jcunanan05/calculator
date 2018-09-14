@@ -1,34 +1,27 @@
 import React from 'react';
+import CalculatorKey from './CalculatorKey';
+import calculatorKeyList from '../calculatorKeyList';
 
-const arr = [];
-
-for (let i = 1; i <= 16; i += 1) {
-  arr.push(i);
+/* eslint-disable react/no-array-index-key */
+function renderKeys() {
+  return calculatorKeyList.map((calculatorKey, i) => (
+    <CalculatorKey key={i} character={calculatorKey} />
+  ));
 }
-
-const Button = ({ children }) => (
-  <button type="button" className="calculator__button">
-    {children}
-  </button>
-);
 
 const Calculator = () => (
   <section className="calculator">
     <div className="calculator__display">
       <section className="calculator__formula">
-        <h2 className="title is-5">One + One</h2>
+        <h2 className="title is-5">1 + 1</h2>
       </section>
 
       <section className="calculator__result">
-        <h2 className="title">9</h2>
+        <h2 className="title is-1">9</h2>
       </section>
     </div>
 
-    <div className="calculator__body">
-      {arr.map((num) => (
-        <Button key={num}>{num}</Button>
-      ))}
-    </div>
+    <div className="calculator__body">{renderKeys()}</div>
   </section>
 );
 
