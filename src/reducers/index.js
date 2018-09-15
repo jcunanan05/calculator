@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import reducerHello from './reducerHello';
+import calculatorKeys from './calculatorKeys';
+import displayFormula from './displayFormula';
+import result from './result';
 
 const rootReducer = combineReducers({
-  hello: reducerHello,
+  calculatorKeys,
+  displayFormula,
+  result,
 });
 
 export default rootReducer;

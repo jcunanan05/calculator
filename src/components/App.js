@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header title="fCC Calculator" />
 
         <main className="main section">
           <div className="container">
