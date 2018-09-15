@@ -5,8 +5,8 @@ import CalculatorKey from '../components/CalculatorKey';
 /* eslint-disable react/no-array-index-key */
 const CalculatorKeys = ({ calculatorKeys }) => (
   <Fragment>
-    {calculatorKeys.payload.map((calculatorKey, i) => (
-      <CalculatorKey character={calculatorKey} key={i} />
+    {calculatorKeys.payload.map(({ key, id }) => (
+      <CalculatorKey character={key} key={id} id={`#${id}`} />
     ))}
   </Fragment>
 );
