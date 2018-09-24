@@ -1,23 +1,14 @@
-import React, { Component } from 'react';
-import Header from './Header';
-import Calculator from './Calculator';
+import React from 'react';
 import '../styles/app.css';
 
-/* eslint-disable react/prefer-stateless-function */
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Header title="fCC Calculator" />
-
-        <main className="main section">
-          <div className="container">
-            <Calculator />
-          </div>
-        </main>
+const App = () => (
+  <div className="App">
+    <section className="hero is-dark">
+      <div className="hero-body content has-text-centered">
+        <h1 className="title">Calculator!</h1>
       </div>
-    );
-  }
-}
+    </section>
+  </div>
+);
 
 export default App;
