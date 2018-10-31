@@ -1527,6 +1527,19 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   .subtitle.is-7 {
     font-size: 0.75rem; }
 
+.calculator {
+  max-width: 15rem;
+  box-shadow: 0 0 1px 1px; }
+  .calculator .display {
+    padding: 1rem; }
+  .calculator .button-list {
+    display: grid;
+    grid-template-columns: repeat(4, auto); }
+  .calculator .button {
+    padding: 1rem; }
+  .calculator .button.zero {
+    grid-column: span 2; }
+
 html,
 body,
 #root,

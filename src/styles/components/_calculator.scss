@@ -1,0 +1,24 @@
+$calculator-padding: 1rem;
+
+.calculator {
+  max-width: 15rem;
+  box-shadow: 0 0 1px 1px;
+
+  .display {
+    padding: $calculator-padding;
+  }
+
+  .button-list {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+  }
+
+  .button {
+    padding: $calculator-padding;
+  }
+
+  // special button for 0. occupy two spaces
+  .button.zero {
+    grid-column: span 2;
+  }
+}
