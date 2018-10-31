@@ -1,0 +1,16 @@
+.display {
+  padding: 1rem;
+}
+
+.button-list {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+}
+
+.button {
+  padding: 1rem;
+}
+
+.button.zero {
+  grid-column: span 2;
+}

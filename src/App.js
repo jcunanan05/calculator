@@ -1,7 +1,8 @@
 import React from 'react';
-import Header from './components/Header';
-import Calculator from './components/Calculator';
-import '../styles/app.css';
+import Header from './views/components/Header';
+import Calculator from './views/components/Calculator';
+
+import './views/App.css';
 
 const App = () => (
   <div className="App">

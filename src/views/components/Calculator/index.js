@@ -1,9 +1,11 @@
 import React from 'react';
 import ButtonList from './ButtonList';
+import Display from './Display';
+import '../Calculator.css';
 
 const Calculator = () => (
   <div className="calculator">
-    <section className="display">display: 0</section>
+    <Display />
     <ButtonList />
   </div>
 );
