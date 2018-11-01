@@ -1,12 +1,12 @@
 import React from 'react';
-import ButtonList from './ButtonList';
+import ButtonListContainer from '../../../state/Calculator/Container';
 import Display from './Display';
 import '../Calculator.css';
 
 const Calculator = () => (
   <div className="calculator">
     <Display />
-    <ButtonList />
+    <ButtonListContainer />
   </div>
 );
 

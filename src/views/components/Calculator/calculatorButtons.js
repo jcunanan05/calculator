@@ -7,7 +7,7 @@ class Buttons {
     this.buttons = [{ name, value, className }, ...this.buttons];
   }
 
-  getAllButtons() {
+  get getAllButtons() {
     return this.buttons;
   }
 }
