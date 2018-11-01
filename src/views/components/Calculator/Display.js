@@ -2,6 +2,6 @@ import React from 'react';
 
 import './Display.css';
 
-export default function Display() {
-  return <section className="display">0</section>;
+export default function Display({ value }) {
+  return <section className="display">{value}</section>;
 }

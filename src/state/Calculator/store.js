@@ -1,5 +1,7 @@
-const initialState = {
+const calculator = {
   display: '0',
 };
 
-export default initialState;
+export default {
+  calculator,
+};

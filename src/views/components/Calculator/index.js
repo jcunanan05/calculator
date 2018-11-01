@@ -1,11 +1,11 @@
 import React from 'react';
-import ButtonListContainer from '../../../state/Calculator/Container';
-import Display from './Display';
+import ButtonListContainer from '../../../state/Calculator/ButtonListContainer';
+import DisplayContainer from '../../../state/Calculator/DisplayContainer';
 import '../Calculator.css';
 
 const Calculator = () => (
   <div className="calculator">
-    <Display />
+    <DisplayContainer />
     <ButtonListContainer />
   </div>
 );
