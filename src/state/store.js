@@ -1,6 +1,6 @@
 import { compose, createStore } from 'redux';
 import reducers from './reducers';
-import initialState from './Calculator/store';
+import initialState from './Calculator/initialState';
 
 /* eslint-disable no-underscore-dangle */
 
