@@ -35,10 +35,8 @@
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
-    "test:lint:js": "eslint --ext=js --ext=jsx .",
-    "test:lint:css": "stylelint \"**/*.scss\"",
     "test:unit": "react-scripts test --env=jsdom",
-    "test": "npm run test:lint:js && npm run test:lint:css && npm run test:unit",
+    "test": "npm run test:unit",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
