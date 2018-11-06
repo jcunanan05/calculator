@@ -1,21 +1,24 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { updateValue } from './actions';
-import ButtonList from '../../views/components/Button/ButtonList';
+import { updateValue, putDecimal } from './actions';
+import ButtonList from '../../views/components/Button/ButtonListWithActionsFilter';
 import buttons from '../../views/components/Calculator/calculatorButtons';
 
 function mapDispatchToProps(dispatch) {
   return {
-    onButtonClick(value) {
-      dispatch(updateValue(value));
-    },
+    actions: bindActionCreators(
+      {
+        updateValue,
+        putDecimal,
+      },
+      dispatch
+    ),
   };
 }
 
-function ButtonListContainer({ onButtonClick }) {
-  return (
-    <ButtonList buttons={buttons.getAllButtons} onButtonClick={onButtonClick} />
-  );
+function ButtonListContainer({ actions }) {
+  return <ButtonList buttons={buttons.getAllButtons} actions={actions} />;
 }
 
 export default connect(
