@@ -6,21 +6,24 @@ import Button from '.';
 export default class ButtonListWithActionsFilter extends Component {
   renderButtons = () => {
     const { buttons, actions } = this.props;
-    const { updateValue, putDecimal, clearValue } = actions;
+    const { updateValue, putDecimal, clearValue, reverseSign } = actions;
     return buttons.map(props => {
-      const { name } = props;
-      if (props.name === 'decimal') {
+      const { name, className } = props;
+      if (name === 'decimal') {
         return <Button key={name} {...props} onClick={putDecimal} />;
       }
 
-      if (props.name === 'clear') {
+      if (name === 'clear') {
         return <Button key={name} {...props} onClick={clearValue} />;
       }
 
-      if (props.className.includes('number')) {
+      if (className.includes('number')) {
         return <Button key={name} {...props} onClick={updateValue} />;
       }
 
+      if (name === 'polarity') {
+        return <Button key={name} {...props} onClick={reverseSign} />;
+      }
       return <Button key={name} {...props} onClick={() => {}} />;
     });
   };
