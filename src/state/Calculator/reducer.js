@@ -1,4 +1,4 @@
-import { UPDATE_VALUE, PUT_DECIMAL } from './actions';
+import { UPDATE_VALUE, PUT_DECIMAL, CLEAR_VALUE } from './actions';
 import { removeLeadZero } from './helpers';
 
 export default function calculatorReducer(state = {}, action) {
@@ -19,6 +19,14 @@ export default function calculatorReducer(state = {}, action) {
     return {
       ...state,
       display: `${display}.`,
+    };
+  }
+
+  if (action.type === CLEAR_VALUE) {
+    return {
+      ...state,
+      display: '0',
+      value: 0,
     };
   }
 

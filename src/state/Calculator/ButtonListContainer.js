@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { updateValue, putDecimal } from './actions';
+import { updateValue, putDecimal, clearValue } from './actions';
 import ButtonList from '../../views/components/Button/ButtonListWithActionsFilter';
 import buttons from '../../views/components/Calculator/calculatorButtons';
 
@@ -11,6 +11,7 @@ function mapDispatchToProps(dispatch) {
       {
         updateValue,
         putDecimal,
+        clearValue,
       },
       dispatch
     ),
