@@ -3,5 +3,6 @@
   padding: 1rem 1rem;
   background-color: #686868;
   color: white;
+  word-break: break-word;
   font-size: 3rem;
 }
