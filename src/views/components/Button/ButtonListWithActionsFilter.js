@@ -24,6 +24,12 @@ export default class ButtonListWithActionsFilter extends Component {
       if (name === 'polarity') {
         return <Button key={name} {...props} onClick={reverseSign} />;
       }
+
+      if (name === 'add') {
+        return <Button key={name} {...props} onClick={clearValue} />;
+      }
+
+      // no Op when not in the filter
       return <Button key={name} {...props} onClick={() => {}} />;
     });
   };
