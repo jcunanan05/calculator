@@ -1,5 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# Generated Css file by sass.
+App.css
+
 # VS Code settings
 /.vscode
 
