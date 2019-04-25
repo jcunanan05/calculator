@@ -3,6 +3,7 @@ import {
   PUT_DECIMAL,
   CLEAR_VALUE,
   REVERSE_SIGN,
+  REGISTER_ADD_OPERATION,
 } from './actions';
 import { removeLeadZero, toggleSignInDisplay } from './helpers';
 
@@ -41,6 +42,13 @@ export default function calculatorReducer(state = {}, action) {
     return {
       value,
       display,
+    };
+  }
+
+  if (action.type === REGISTER_ADD_OPERATION) {
+    return {
+      ...state,
+      operation: '+',
     };
   }
 
