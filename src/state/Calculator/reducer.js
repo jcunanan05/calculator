@@ -4,6 +4,7 @@ import {
   CLEAR_VALUE,
   REVERSE_SIGN,
   REGISTER_ADD_OPERATION,
+  SAVE_TO_PREVIOUS_VALUE,
 } from './actions';
 import { removeLeadZero, toggleSignInDisplay } from './helpers';
 
@@ -49,6 +50,13 @@ export default function calculatorReducer(state = {}, action) {
     return {
       ...state,
       operation: '+',
+    };
+  }
+
+  if (action.type === SAVE_TO_PREVIOUS_VALUE) {
+    return {
+      ...state,
+      previousValue: state.value,
     };
   }
 

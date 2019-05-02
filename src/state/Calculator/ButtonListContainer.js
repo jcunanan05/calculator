@@ -7,6 +7,7 @@ import {
   clearValue,
   reverseSign,
   registerAddOperation,
+  saveToPreviousValue,
 } from './actions';
 import ButtonList from '../../views/components/Button/ButtonListWithActionsFilter';
 import buttons from '../../views/components/Calculator/calculatorButtons';
@@ -20,6 +21,7 @@ function mapDispatchToProps(dispatch) {
         clearValue,
         reverseSign,
         registerAddOperation,
+        saveToPreviousValue,
       },
       dispatch
     ),
