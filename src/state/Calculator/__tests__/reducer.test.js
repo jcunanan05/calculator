@@ -1,7 +1,15 @@
 import { createStore } from 'redux';
 import reducer from '../reducer';
 import { calculator } from '../initialState';
-import { updateValue, reverseSign, clearValue, putDecimal } from '../actions';
+import {
+  updateValue,
+  reverseSign,
+  clearValue,
+  putDecimal,
+  registerAddOperation,
+  equalOperation,
+  saveToPreviousValue,
+} from '../actions';
 
 const store = createStore(reducer, { ...calculator });
 
@@ -67,5 +75,19 @@ test('reverseSign input -1000 must output 1000', () => {
   expect(store.getState()).toMatchObject({
     display: '1000',
     value: 1000,
+  });
+});
+
+test('perform add operation works', () => {
+  store.dispatch(clearValue());
+  store.dispatch(updateValue(100));
+  store.dispatch(registerAddOperation());
+  store.dispatch(saveToPreviousValue());
+  store.dispatch(clearValue());
+  store.dispatch(updateValue(20));
+  store.dispatch(equalOperation());
+  expect(store.getState()).toMatchObject({
+    display: '120',
+    value: 120,
   });
 });
