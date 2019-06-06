@@ -5,8 +5,13 @@ import {
   REVERSE_SIGN,
   REGISTER_ADD_OPERATION,
   SAVE_TO_PREVIOUS_VALUE,
+  EQUAL_OPERATION,
 } from './actions';
-import { removeLeadZero, toggleSignInDisplay } from './helpers';
+import {
+  removeLeadZero,
+  toggleSignInDisplay,
+  performOperation,
+} from './helpers';
 
 export default function calculatorReducer(state = {}, action) {
   if (action.type === UPDATE_VALUE) {
@@ -57,6 +62,18 @@ export default function calculatorReducer(state = {}, action) {
     return {
       ...state,
       previousValue: state.value,
+    };
+  }
+
+  if (action.type === EQUAL_OPERATION) {
+    if (!state.operation) return state;
+
+    return {
+      ...state,
+      value: performOperation(state),
+      previousValue: null,
+      display: `${performOperation(state)}`,
+      operation: null,
     };
   }
 
