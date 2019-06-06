@@ -7,7 +7,7 @@ export default class ButtonListWithActionsFilter extends Component {
   onAddClick = () => {
     const { actions } = this.props;
     actions.registerAddOperation();
-    actions.savePreviousValue();
+    actions.saveToPreviousValue();
     actions.clearValue();
   };
 
