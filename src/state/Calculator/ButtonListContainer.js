@@ -8,6 +8,7 @@ import {
   reverseSign,
   registerAddOperation,
   saveToPreviousValue,
+  equalOperation,
 } from './actions';
 import ButtonList from '../../views/components/Button/ButtonListWithActionsFilter';
 import buttons from '../../views/components/Calculator/calculatorButtons';
@@ -22,6 +23,7 @@ function mapDispatchToProps(dispatch) {
         reverseSign,
         registerAddOperation,
         saveToPreviousValue,
+        equalOperation,
       },
       dispatch
     ),

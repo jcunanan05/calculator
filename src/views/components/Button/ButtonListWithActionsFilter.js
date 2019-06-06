@@ -39,6 +39,15 @@ export default class ButtonListWithActionsFilter extends Component {
       if (props.name === 'add') {
         return <Button key={props.name} {...props} onClick={this.onAddClick} />;
       }
+      if (props.name === 'equals') {
+        return (
+          <Button
+            key={props.name}
+            {...props}
+            onClick={actions.equalOperation}
+          />
+        );
+      }
       // no Op when not in the filter
       return <Button key={props.name} {...props} onClick={() => {}} />;
     });
