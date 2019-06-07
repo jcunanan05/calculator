@@ -10,11 +10,15 @@ import {
   equalOperation,
   saveToPreviousValue,
 } from '../actions';
+import signs from '../operatorSigns';
 
 const store = createStore(reducer, { ...calculator });
 
-test('updateValue input 1 must be 1', () => {
+beforeEach(() => {
   store.dispatch(clearValue());
+});
+
+test('updateValue input 1 must be 1', () => {
   store.dispatch(updateValue(1));
   expect(store.getState()).toMatchObject({ display: '1', value: 1 });
 });
@@ -29,7 +33,6 @@ test('clearValue must have 0 in display and value', () => {
 });
 
 test('putDecimal input 0 , 1 must output .1', () => {
-  store.dispatch(clearValue());
   store.dispatch(putDecimal());
   store.dispatch(updateValue(1));
   expect(store.getState()).toMatchObject({
@@ -39,7 +42,6 @@ test('putDecimal input 0 , 1 must output .1', () => {
 });
 
 test('putDecimal does not double decimal', () => {
-  store.dispatch(clearValue());
   store.dispatch(putDecimal());
   store.dispatch(updateValue(1));
   store.dispatch(putDecimal());
@@ -50,7 +52,6 @@ test('putDecimal does not double decimal', () => {
 });
 
 test('reverseSign input 0 must output 0', () => {
-  store.dispatch(clearValue());
   store.dispatch(reverseSign());
   expect(store.getState()).toMatchObject({
     display: '0',
@@ -59,7 +60,6 @@ test('reverseSign input 0 must output 0', () => {
 });
 
 test('reverseSign input 1000 must output -1000', () => {
-  store.dispatch(clearValue());
   store.dispatch(updateValue(1000));
   store.dispatch(reverseSign());
   expect(store.getState()).toMatchObject({
@@ -69,7 +69,6 @@ test('reverseSign input 1000 must output -1000', () => {
 });
 
 test('reverseSign input -1000 must output 1000', () => {
-  store.dispatch(clearValue());
   store.dispatch(updateValue(-1000));
   store.dispatch(reverseSign());
   expect(store.getState()).toMatchObject({
@@ -79,7 +78,6 @@ test('reverseSign input -1000 must output 1000', () => {
 });
 
 test('perform add operation works', () => {
-  store.dispatch(clearValue());
   store.dispatch(updateValue(100));
   store.dispatch(registerAddOperation());
   store.dispatch(saveToPreviousValue());
