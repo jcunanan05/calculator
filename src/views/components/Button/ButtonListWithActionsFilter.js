@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import Button from '.';
 
-// const noOp = () => {};
+/**
+ * ButtonListWithActionsFilter
+ * @param {Object} actions - redux actions
+ * @param {Array} buttons
+ */
 
 export default class ButtonListWithActionsFilter extends Component {
   onAddClick = () => {
