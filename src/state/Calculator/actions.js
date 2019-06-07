@@ -1,10 +1,12 @@
-export const UPDATE_VALUE = 'UPDATE_VALUE';
-export const PUT_DECIMAL = 'PUT_DECIMAL';
-export const CLEAR_VALUE = 'CLEAR_VALUE';
-export const REVERSE_SIGN = 'REVERSE_SIGN';
-export const REGISTER_ADD_OPERATION = 'REGISTER_ADD_OPERATION';
-export const SAVE_TO_PREVIOUS_VALUE = 'SAVE_TO_PREVIOUS_VALUE';
-export const EQUAL_OPERATION = 'EQUAL_OPERATION';
+import {
+  UPDATE_VALUE,
+  PUT_DECIMAL,
+  CLEAR_VALUE,
+  REVERSE_SIGN,
+  REGISTER_ADD_OPERATION,
+  SAVE_TO_PREVIOUS_VALUE,
+  EQUAL_OPERATION,
+} from './constants';
 
 export const updateValue = value => ({
   type: UPDATE_VALUE,

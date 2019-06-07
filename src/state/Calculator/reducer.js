@@ -6,7 +6,7 @@ import {
   REGISTER_ADD_OPERATION,
   SAVE_TO_PREVIOUS_VALUE,
   EQUAL_OPERATION,
-} from './actions';
+} from './constants';
 import {
   removeLeadZero,
   toggleSignInDisplay,
