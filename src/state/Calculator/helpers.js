@@ -1,3 +1,5 @@
+import signs from './operatorSigns';
+
 function removeLeadZero(text) {
   if (!(text[0] === '0' && text.length > 1)) {
     return text;
@@ -18,7 +20,7 @@ function toggleSignInDisplay(text) {
 
 function performOperation({ value, previousValue, operation }) {
   if (!operation) return null;
-  if (operation === '+') return previousValue + value;
+  if (operation === signs.PLUS) return previousValue + value;
   // when things go nuts
   return null;
 }

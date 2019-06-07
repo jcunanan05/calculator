@@ -4,6 +4,9 @@ import {
   CLEAR_VALUE,
   REVERSE_SIGN,
   REGISTER_ADD_OPERATION,
+  REGISTER_SUBTRACT_OPERATION,
+  REGISTER_MULTIPLY_OPERATION,
+  REGISTER_DIVIDE_OPERATION,
   SAVE_TO_PREVIOUS_VALUE,
   EQUAL_OPERATION,
 } from './constants';
@@ -12,6 +15,7 @@ import {
   toggleSignInDisplay,
   performOperation,
 } from './helpers';
+import signs from './operatorSigns';
 
 export default function calculatorReducer(state = {}, action) {
   if (action.type === UPDATE_VALUE) {
@@ -54,7 +58,28 @@ export default function calculatorReducer(state = {}, action) {
   if (action.type === REGISTER_ADD_OPERATION) {
     return {
       ...state,
-      operation: '+',
+      operation: signs.PLUS,
+    };
+  }
+
+  if (action.type === REGISTER_SUBTRACT_OPERATION) {
+    return {
+      ...state,
+      operation: signs.MINUS,
+    };
+  }
+
+  if (action.type === REGISTER_MULTIPLY_OPERATION) {
+    return {
+      ...state,
+      operation: signs.MULTIPLY,
+    };
+  }
+
+  if (action.type === REGISTER_DIVIDE_OPERATION) {
+    return {
+      ...state,
+      operation: signs.DIVIDE,
     };
   }
 
