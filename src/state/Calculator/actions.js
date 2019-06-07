@@ -40,7 +40,7 @@ const registerMultiplyOperation = () => ({
   type: REGISTER_MULTIPLY_OPERATION,
 });
 
-const regsiterDivideOperation = () => ({
+const registerDivideOperation = () => ({
   type: REGISTER_DIVIDE_OPERATION,
 });
 
@@ -60,7 +60,7 @@ export {
   registerAddOperation,
   registerSubtractOperation,
   registerMultiplyOperation,
-  regsiterDivideOperation,
+  registerDivideOperation,
   saveToPreviousValue,
   equalOperation,
 };

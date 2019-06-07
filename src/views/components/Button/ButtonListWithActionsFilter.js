@@ -15,6 +15,27 @@ export default class ButtonListWithActionsFilter extends Component {
     actions.clearValue();
   };
 
+  onSubtractClick = () => {
+    const { actions } = this.props;
+    actions.registerSubtractOperation();
+    actions.saveToPreviousValue();
+    actions.clearValue();
+  };
+
+  onMultiplyClick = () => {
+    const { actions } = this.props;
+    actions.registerMultiplyOperation();
+    actions.saveToPreviousValue();
+    actions.clearValue();
+  };
+
+  onDivideClick = () => {
+    const { actions } = this.props;
+    actions.registerDivideOperation();
+    actions.saveToPreviousValue();
+    actions.clearValue();
+  };
+
   renderButtons = () => {
     const { buttons, actions } = this.props;
 
@@ -42,6 +63,21 @@ export default class ButtonListWithActionsFilter extends Component {
       }
       if (props.name === 'add') {
         return <Button key={props.name} {...props} onClick={this.onAddClick} />;
+      }
+      if (props.name === 'subtract') {
+        return (
+          <Button key={props.name} {...props} onClick={this.onSubtractClick} />
+        );
+      }
+      if (props.name === 'multiply') {
+        return (
+          <Button key={props.name} {...props} onClick={this.onMultiplyClick} />
+        );
+      }
+      if (props.name === 'divide') {
+        return (
+          <Button key={props.name} {...props} onClick={this.onDivideClick} />
+        );
       }
       if (props.name === 'equals') {
         return (
