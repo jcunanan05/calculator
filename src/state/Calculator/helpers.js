@@ -21,6 +21,7 @@ function toggleSignInDisplay(text) {
 function performOperation({ value, previousValue, operation }) {
   if (!operation) return null;
   if (operation === signs.PLUS) return previousValue + value;
+  if (operation === signs.MINUS) return previousValue - value;
   // when things go nuts
   return null;
 }

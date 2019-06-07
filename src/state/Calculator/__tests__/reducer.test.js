@@ -7,6 +7,7 @@ import {
   clearValue,
   putDecimal,
   registerAddOperation,
+  registerSubtractOperation,
   equalOperation,
   saveToPreviousValue,
 } from '../actions';
@@ -96,6 +97,28 @@ describe('add operation', () => {
     expect(store.getState()).toMatchObject({
       display: '120',
       value: 120,
+    });
+  });
+});
+
+describe('subtract operation', () => {
+  it('registers', () => {
+    store.dispatch(registerSubtractOperation());
+    expect(store.getState()).toMatchObject({
+      operation: signs.MINUS,
+    });
+  });
+
+  it('performs subtract operation', () => {
+    store.dispatch(updateValue(100));
+    store.dispatch(registerSubtractOperation());
+    store.dispatch(saveToPreviousValue());
+    store.dispatch(clearValue());
+    store.dispatch(updateValue(20));
+    store.dispatch(equalOperation());
+    expect(store.getState()).toMatchObject({
+      display: '80',
+      value: 80,
     });
   });
 });
