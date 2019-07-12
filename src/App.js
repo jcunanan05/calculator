@@ -106,6 +106,12 @@ class Calculator extends React.Component {
     }));
   };
 
+  clearDisplay = () => {
+    this.setState({
+      displayValue: '0',
+    });
+  };
+
   render() {
     const { displayValue } = this.state;
 
@@ -118,7 +124,10 @@ class Calculator extends React.Component {
         <div className="calculator-keypad">
           <div className="input-keys">
             <div className="function-keys">
-              <CalculatorKey className="key-clear" onPress={() => {}}>
+              <CalculatorKey
+                className="key-clear"
+                onPress={() => this.clearDisplay()}
+              >
                 {clearText}
               </CalculatorKey>
               <CalculatorKey className="key-sign" onPress={() => {}}>
