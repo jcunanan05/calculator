@@ -29,14 +29,14 @@ button:active {
   box-shadow: inset 0 0 80px 0 rgba(0, 0, 0, 0.25);
 }
 
-#wrapper {
+.wrapper {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#app {
+#root {
   width: 320px;
   height: 520px;
   position: relative;
@@ -50,7 +50,7 @@ button:active {
   flex-direction: column;
 }
 
-#wrapper .calculator {
+.wrapper .calculator {
   box-shadow: 0 0 20px 0 #aaa;
 }
 
@@ -84,12 +84,11 @@ button:active {
 
 .calculator .function-keys {
   display: flex;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(202, 202, 204, 1) 0%,
-      rgba(196, 194, 204, 1) 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    rgba(202, 202, 204, 1) 0%,
+    rgba(196, 194, 204, 1) 100%
+  );
 }
 
 .calculator .digit-keys {
@@ -138,10 +137,9 @@ button:active {
 }
 
 .calculator .operator-keys {
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(252, 156, 23, 1) 0%,
-      rgba(247, 126, 27, 1) 100%
-    );
+  background: linear-gradient(
+    to bottom,
+    rgba(252, 156, 23, 1) 0%,
+    rgba(247, 126, 27, 1) 100%
+  );
 }
