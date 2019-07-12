@@ -112,6 +112,17 @@ class Calculator extends React.Component {
     });
   };
 
+  toggleSign = () => {
+    const { displayValue } = this.state;
+    function addSign() {
+      if (displayValue.charAt(0) === '-') return displayValue.substr(1);
+      return `-${displayValue}`;
+    }
+    this.setState({
+      displayValue: addSign(),
+    });
+  };
+
   render() {
     const { displayValue } = this.state;
 
@@ -130,7 +141,10 @@ class Calculator extends React.Component {
               >
                 {clearText}
               </CalculatorKey>
-              <CalculatorKey className="key-sign" onPress={() => {}}>
+              <CalculatorKey
+                className="key-sign"
+                onPress={() => this.toggleSign()}
+              >
                 ±
               </CalculatorKey>
               <CalculatorKey className="key-percent" onPress={() => {}}>
