@@ -14,22 +14,42 @@ class Calculator extends React.Component {
 
   inputDigit = digit => {
     const { state } = this;
-    const calculatedValue =
-      state.displayValue === '0' ? String(digit) : state.displayValue + digit;
-    this.setState({
-      displayValue: calculatedValue,
-    });
+
+    if (state.waitingForOperand) {
+      this.setState({
+        displayValue: String(digit),
+        waitingForOperand: false,
+      });
+      return;
+    }
+
+    this.setState(currentState => ({
+      displayValue:
+        currentState.displayValue === '0'
+          ? String(digit)
+          : currentState.displayValue + digit,
+    }));
   };
 
   inputDot = () => {
-    const { displayValue } = this.state;
-    function noDotFound() {
-      return displayValue.indexOf('.') === -1;
+    const { displayValue, waitingForOperand } = this.state;
+
+    if (waitingForOperand) {
+      this.setState({
+        displayValue: '.',
+        waitingForOperand: false,
+      });
+      return;
     }
+
     if (!noDotFound()) return;
     this.setState(currentState => ({
       displayValue: currentState.displayValue + '.',
     }));
+
+    function noDotFound() {
+      return displayValue.indexOf('.') === -1;
+    }
   };
 
   clearDisplay = () => {
@@ -54,6 +74,40 @@ class Calculator extends React.Component {
     const value = parseFloat(state.displayValue);
     this.setState({
       displayValue: String(value / 100),
+    });
+  };
+
+  performOperation = nextOperator => {
+    const { state } = this;
+    const nextValue = parseFloat(state.displayValue);
+    const operations = {
+      '/': (prevValue, nextValue) => prevValue / nextValue,
+      '*': (prevValue, nextValue) => prevValue * nextValue,
+      '+': (prevValue, nextValue) => prevValue + nextValue,
+      '-': (prevValue, nextValue) => prevValue - nextValue,
+      '=': (___, nextValue) => nextValue,
+    };
+
+    if (state.value === null) {
+      // no previous value, hit operator key
+      this.setState({
+        value: nextValue,
+      });
+    } else if (state.operator) {
+      const computedValue = operations[state.operator](
+        state.value || 0,
+        nextValue
+      );
+      this.setState({
+        value: computedValue,
+        displayValue: String(computedValue),
+      });
+    }
+    // const computedValue = operations[state.operator](prevValue, nextValue);
+
+    this.setState({
+      waitingForOperand: true,
+      operator: nextOperator,
     });
   };
 
@@ -158,19 +212,34 @@ class Calculator extends React.Component {
             </div>
           </div>
           <div className="operator-keys">
-            <CalculatorKey className="key-divide" onPress={() => {}}>
+            <CalculatorKey
+              className="key-divide"
+              onPress={() => this.performOperation('/')}
+            >
               ÷
             </CalculatorKey>
-            <CalculatorKey className="key-multiply" onPress={() => {}}>
+            <CalculatorKey
+              className="key-multiply"
+              onPress={() => this.performOperation('*')}
+            >
               ×
             </CalculatorKey>
-            <CalculatorKey className="key-subtract" onPress={() => {}}>
+            <CalculatorKey
+              className="key-subtract"
+              onPress={() => this.performOperation('-')}
+            >
               −
             </CalculatorKey>
-            <CalculatorKey className="key-add" onPress={() => {}}>
+            <CalculatorKey
+              className="key-add"
+              onPress={() => this.performOperation('+')}
+            >
               +
             </CalculatorKey>
-            <CalculatorKey className="key-equals" onPress={() => {}}>
+            <CalculatorKey
+              className="key-equals"
+              onPress={() => this.performOperation('=')}
+            >
               =
             </CalculatorKey>
           </div>
