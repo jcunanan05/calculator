@@ -79,7 +79,6 @@ class Calculator extends React.Component {
 
   performOperation = nextOperator => {
     const { state } = this;
-    const nextValue = parseFloat(state.displayValue);
     const operations = {
       '/': (prevValue, nextValue) => prevValue / nextValue,
       '*': (prevValue, nextValue) => prevValue * nextValue,
@@ -91,19 +90,18 @@ class Calculator extends React.Component {
     if (state.value === null) {
       // no previous value, hit operator key
       this.setState({
-        value: nextValue,
+        value: parseFloat(state.displayValue),
       });
     } else if (state.operator) {
       const computedValue = operations[state.operator](
         state.value || 0,
-        nextValue
+        parseFloat(state.displayValue)
       );
       this.setState({
         value: computedValue,
         displayValue: String(computedValue),
       });
     }
-    // const computedValue = operations[state.operator](prevValue, nextValue);
 
     this.setState({
       waitingForOperand: true,
