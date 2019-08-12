@@ -24,6 +24,7 @@ class AutoScalingText extends React.Component {
 
     return (
       <div
+        data-testid="auto-scaling-text"
         className="auto-scaling-text"
         style={{ transform: `scale(${scale},${scale})` }}
         ref={node => (this.node = node)}

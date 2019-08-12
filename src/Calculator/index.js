@@ -117,8 +117,12 @@ class Calculator extends React.Component {
     return (
       <section className="calculator-container">
         <div className="calculator">
-          <CalculatorDisplay id="display" value={displayValue} />
-          <div className="calculator-keypad">
+          <CalculatorDisplay
+            data-testid="display"
+            id="display"
+            value={displayValue}
+          />
+          <div data-testid="calculator-keypad" className="calculator-keypad">
             <div className="input-keys">
               <div className="function-keys">
                 <CalculatorKey
